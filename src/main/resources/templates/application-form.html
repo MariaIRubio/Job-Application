@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Form</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h2>Application Form</h2>
+        <form th:action="@{/processForm}" th:object="${applicant}" method="POST">
+            <div class="box">
+                <label>Full name: </label>
+                <input type="text" th:field="*{name}" placeholder="Your name">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"/>
+            </div>
+            <div class="box">
+                <label>Email: </label>
+                <input type="text" th:field="*{email}" placeholder="Your email">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"/>
+            </div>
+            <div class="box">
+                <label>Address: </label>
+                <input type="text" th:field="*{address}" placeholder="Your address">
+                <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="error"/>
+            </div>
+            <div class="box">
+                <label>Phone number: </label>
+                <input type="text" th:field="*{phoneNumber}" placeholder="Your phone number">
+                <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error"/>
+            </div>
+            <div class="box">
+                <label>Job position: </label>
+                <select th:field="*{jobPosition}">
+                    <option  th:value="Manager">Manager</option>
+                    <option  th:value="CEO">CEO</option>
+                    <option  th:value="IT">IT</option>
+                    <option  th:value="HR">HR</option>
+                </select>
+                <span th:if="${#fields.hasErrors('jobPosition')}" th:errors="*{jobPosition}" class="error"/>
+            </div>
+            <div class="box">
+                <label>Job Location: </label>
+                <input type="radio" th:field="*{jobLocation}" th:value="Berlin">Berlin</input>
+                <input type="radio" th:field="*{jobLocation}" th:value="Hamburg">Hamburg</input>
+                <input type="radio" th:field="*{jobLocation}" th:value="Frankfurt">Frankfurt</input>
+                <input type="radio" th:field="*{jobLocation}" th:value="Remote">Remote</input>
+                <span th:if="${#fields.hasErrors('jobLocation')}" th:errors="*{jobLocation}" class="error"/>
+            </div>
+            <div class="box">
+                <label>Cover Letter: </label>
+                <textarea rows="15" cols="30" th:field="*{coverLetter}" placeholder="Your cover letter"></textarea>
+                <span th:if="${#fields.hasErrors('coverLetter')}" th:errors="*{coverLetter}" class="error"/>
+            </div>
+            <div class="box">
+                <input type="submit" value="Apply">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

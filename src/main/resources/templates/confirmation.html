@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Confirmation</h2>
+    <div class="box">
+        <label>Name: </label> <span th:text="${applicant.name}"/>
+    </div>
+    <div class="box">
+        <label>Email: </label> <span th:text="${applicant.email}"/>
+    </div>
+    <div class="box">
+        <label>Address: </label> <span th:text="${applicant.address}"/>
+    </div>
+    <div class="box">
+        <label>Phone Number: </label> <span th:text="${applicant.phoneNumber}"/>
+    </div>
+    <div class="box">
+        <label>Job Position: </label> <span th:text="${applicant.jobPosition}"/>
+    </div>
+    <div class="box">
+        <label>Job Location: </label> <span th:text="${applicant.jobLocation}"/>
+    </div>
+</div>
+</body>
+</html>
